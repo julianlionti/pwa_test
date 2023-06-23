@@ -3,9 +3,13 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { version } from "../package.json";
+import { useRegisterSW } from "virtual:pwa-register/react";
+import ReloadPrompt from "./ReloadPrompt";
 
 function App() {
   const [count, setCount] = useState(0);
+  const { needRefresh, offlineReady } = useRegisterSW();
+  console.log({ needRefresh, offlineReady });
 
   return (
     <>
@@ -19,6 +23,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <h2>{`Current Version ${version}`}</h2>
+      <ReloadPrompt />
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
