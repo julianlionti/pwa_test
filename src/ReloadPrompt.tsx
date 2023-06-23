@@ -1,6 +1,7 @@
 import { useRegisterSW } from "virtual:pwa-register/react";
 
-const intervalMS = 1000;
+// Check the status of the cache
+const intervalMS = 1000 * 60;
 
 function ReloadPrompt() {
   const {
@@ -9,13 +10,11 @@ function ReloadPrompt() {
     updateServiceWorker,
   } = useRegisterSW({
     onRegistered(r) {
-      console.log("Register");
-
-      if (r)
+      if (r) {
         setInterval(() => {
-          console.log("Update");
           r.update();
         }, intervalMS);
+      }
     },
     onRegisterError(error) {
       console.log("SW registration error", error);
