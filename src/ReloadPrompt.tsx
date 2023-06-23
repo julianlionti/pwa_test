@@ -37,7 +37,10 @@ function ReloadPrompt() {
           {needRefresh && (
             <button
               className="ReloadPrompt-toast-button"
-              onClick={() => updateServiceWorker(true)}
+              onClick={() => {
+                console.log("Refresh");
+                updateServiceWorker(true);
+              }}
             >
               Reload
             </button>
