@@ -27,14 +27,14 @@ function ReloadPrompt() {
 
   return (
     <div className="ReloadPrompt-container">
-      {!needRefresh && (
+      {needRefresh && (
         <div className="ReloadPrompt-toast">
           <div className="ReloadPrompt-message">
             <span>
               New content available, click on reload button to update.
             </span>
           </div>
-          {!needRefresh && (
+          {needRefresh && (
             <button
               className="ReloadPrompt-toast-button"
               onClick={() => updateServiceWorker(true)}
