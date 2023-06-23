@@ -7,6 +7,6 @@ import manifest from "./manifest.json";
 export default defineConfig({
   plugins: [
     react(),
-    VitePWA({ manifest, workbox: { cleanupOutdatedCaches: true } }),
+    // VitePWA({ manifest, workbox: { cleanupOutdatedCaches: true } }),
   ],
 });
